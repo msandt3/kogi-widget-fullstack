@@ -64,18 +64,21 @@
  
     /******** starting point for your widget ********/
     function main() {
-      //your widget code goes here
+        /* Load in Underscore*/
+        loadScript("//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js", function() { 
+            _ = window._.noConflict(true);
+            console.log(_);
+        });
+
+        /* Load in Pure Css Styles */
+        loadCss("//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css");
 	
         jQuery(document).ready(function ($) {          
           
-            /* Load in Underscore*/
-            loadScript("//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js", function() { 
-                _ = window._.noConflict(true);
+            $.get('http://localhost:3000/static/backbone-template.txt',function(data){
+                var compiled = _.template(data,{name:'World'});
+                $('#underscore').html(compiled);
             });
-
-            /* Load in Pure Css Styles */
-            loadCss("//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css");
-    
 
             // ==================== Load Login Form & Attach Handlers ========================
             $('#widget').load('http://localhost:3000/static/template.html',null,function(data){
@@ -96,6 +99,8 @@
                         alert('Logged In Successfully! Be patient, more views coming soon')
                         console.log(data);
                     });
+
+                    // TODO -- render first view after login
                 });
 
 
