@@ -58,3 +58,4 @@ The raw HTML is styled with [Pure CSS](http://purecss.io/), a lightweight CSS fr
 * Adjust styling to spec
 * (Maybe) Implement [Backbone.js](http://backbonejs.org/) for model relations
 * UNIT TESTING
+* Shell script to start everything automatically

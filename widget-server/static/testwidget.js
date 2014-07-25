@@ -93,6 +93,7 @@
 
                     console.log(postData);
                     $.post('http://localhost:3000/api/login',postData,function(data){
+                        alert('Logged In Successfully! Be patient, more views coming soon')
                         console.log(data);
                     });
                 });
