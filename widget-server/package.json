@@ -1,0 +1,12 @@
+{
+	"name": "WidgetServer",
+	"version": "0.0.1",
+	"dependencies": {
+		"express": "~4.0.0",
+		"cors": "~2.4.1",
+		"request": "~2.39.0",
+		"body-parser": "~1.0.1"
+	}
+}
+
+
