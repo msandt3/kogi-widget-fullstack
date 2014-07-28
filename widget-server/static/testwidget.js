@@ -7,7 +7,7 @@
     var scriptTag; //reference to the html script tag
     var _; //underscorejs
     var Backbone; //backbonejs
-    var server = 'http://109.74.206.207:8080/v1/';
+    var server = 'http://localhost:3000';
 
  
     /******** Get reference to self (scriptTag) *********/
@@ -77,7 +77,7 @@
 
         /* Load in Pure Css Styles */
         loadCss("//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css");
-        loadCss("//localhost:3000/static/styles/widget.css");
+        loadCss(server+"/static/styles/widget.css");
 	
         jQuery(document).ready(function ($) {          
 
@@ -87,7 +87,7 @@
 
             function showLogin(){
             // ==================== Load Login Form & Attach Handlers ========================
-                $('#widget').load('http://localhost:3000/static/templates/login.html',null,function(data){
+                $('#widget').load(server+'/static/templates/login.html',null,function(data){
 
 
                     $('#login-form').on('submit',function(e){
@@ -101,7 +101,7 @@
                         }
 
                         console.log(postData);
-                        $.post('http://localhost:3000/api/login',postData,function(data){
+                        $.post(server+'/api/login',postData,function(data){
                             // alert('Logged In Successfully! Be patient, more views coming soon')
                             showFilters();
                         });
@@ -113,8 +113,8 @@
             }
 
             function showFilters(){
-                $.getJSON('http://localhost:3000/api/filters',{},function(data){
-                    $.get('http://localhost:3000/static/templates/filters.html',function(template){
+                $.getJSON(server+'/api/filters',{},function(data){
+                    $.get(server+'/static/templates/filters.html',function(template){
                         var compiled = _.template(template,{filters:data});
                         $('#widget').html(compiled);
 
@@ -127,8 +127,8 @@
             }
 
             function showMentions(){
-                $.getJSON('http://localhost:3000/api/mentions',{},function(data){
-                    $.get('http://localhost:3000/static/templates/mentions.html',function(template){
+                $.getJSON(server+'/api/mentions',{},function(data){
+                    $.get(server+'/static/templates/mentions.html',function(template){
                         console.log(data);
                         var compiled = _.template(template,{mentions:data.mentions});
                         $('#widget').html(compiled);
