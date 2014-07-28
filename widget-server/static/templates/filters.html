@@ -1,0 +1,30 @@
+<div class='pure-grid'>
+<h4>Example Filters Template</h4>
+<form id="filters-form" class='pure-form'>
+
+
+<% _.each(filters.filters, function(filter){
+	%>
+	<h5><%= filter.name %></h5>
+	<fieldset class="pure-group">
+	<%
+	_.each(filter.items, function(item){
+		var id_string = _.escape(filter.name+'-'+item.name);
+		var checked = item.enabled ? 'checked' : ''; 
+		%>
+			<label for="<%= id_string %>" class="pure-checkbox">
+				<input id="<%= id_string %>" type="checkbox" <%= checked %>>
+				<%= item.name %>
+			</label>
+		<%
+	});
+	%>
+	</fieldset>
+	<%
+}); %>
+
+
+<button type="submit" class="pure-button pure-button-primary">Continue</button>
+
+</form>
+</div>

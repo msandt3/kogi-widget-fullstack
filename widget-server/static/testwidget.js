@@ -6,7 +6,9 @@
     var jqueryVersion = "1.8.3";
     var scriptTag; //reference to the html script tag
     var _; //underscorejs
+    var Backbone; //backbonejs
     var server = 'http://109.74.206.207:8080/v1/';
+
  
     /******** Get reference to self (scriptTag) *********/
     var allScripts = document.getElementsByTagName('script');
@@ -65,46 +67,74 @@
     /******** starting point for your widget ********/
     function main() {
         /* Load in Underscore*/
+        
         loadScript("//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js", function() { 
-            _ = window._.noConflict(true);
-            console.log(_);
+            _ = window._.noConflict(true);    
         });
+
+        /* Load in Backbone */
+        
 
         /* Load in Pure Css Styles */
         loadCss("//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css");
+        loadCss("//localhost:3000/static/styles/widget.css");
 	
         jQuery(document).ready(function ($) {          
-          
-            $.get('http://localhost:3000/static/backbone-template.txt',function(data){
-                var compiled = _.template(data,{name:'World'});
-                $('#underscore').html(compiled);
-            });
 
+            // showBackbone();
+            showLogin();
+
+
+            function showLogin(){
             // ==================== Load Login Form & Attach Handlers ========================
-            $('#widget').load('http://localhost:3000/static/template.html',null,function(data){
+                $('#widget').load('http://localhost:3000/static/templates/login.html',null,function(data){
 
 
-                $('#login-form').on('submit',function(e){
-                    e.preventDefault();
-                    // Now lets send of an AJAX request to login
-                    var postData = {
-                        username: $('#username').val(),
-                        password: $('#password').val(),
-                        grant_type: 'password',
-                        client_id: 'anything'
-                    }
+                    $('#login-form').on('submit',function(e){
+                        e.preventDefault();
+                        // Now lets send of an AJAX request to login
+                        var postData = {
+                            username: $('#username').val(),
+                            password: $('#password').val(),
+                            grant_type: 'password',
+                            client_id: 'anything'
+                        }
 
-                    console.log(postData);
-                    $.post('http://localhost:3000/api/login',postData,function(data){
-                        alert('Logged In Successfully! Be patient, more views coming soon')
-                        console.log(data);
+                        console.log(postData);
+                        $.post('http://localhost:3000/api/login',postData,function(data){
+                            // alert('Logged In Successfully! Be patient, more views coming soon')
+                            showFilters();
+                        });
+
                     });
 
-                    // TODO -- render first view after login
+
                 });
+            }
 
+            function showFilters(){
+                $.getJSON('http://localhost:3000/api/filters',{},function(data){
+                    $.get('http://localhost:3000/static/templates/filters.html',function(template){
+                        var compiled = _.template(template,{filters:data});
+                        $('#widget').html(compiled);
 
-            });
+                        $('#filters-form').on('submit',function(e){
+                            e.preventDefault();
+                            showMentions();
+                        });
+                    });
+                });
+            }
+
+            function showMentions(){
+                $.getJSON('http://localhost:3000/api/mentions',{},function(data){
+                    $.get('http://localhost:3000/static/templates/mentions.html',function(template){
+                        console.log(data);
+                        var compiled = _.template(template,{mentions:data.mentions});
+                        $('#widget').html(compiled);
+                    });
+                });
+            }
             
         });
 		

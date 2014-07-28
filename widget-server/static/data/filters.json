@@ -1,0 +1,22 @@
+{
+  "filters": [
+    {
+      "name": "Platform",
+      "items": [
+        {"name": "Facebook", "enabled": false},
+        {"name": "Twitter", "enabled": true}
+      ]
+    },
+    {
+      "name": "Segment",
+      "items": [
+        {"name": "Advocates & detractors", "enabled": false},
+        {"name": "Followers", "enabled": true},
+        {"name": "Top Magic Middle", "enabled": true},
+        {"name": "Low Magic Middle", "enabled": false},
+        {"name": "Top Influencer", "enabled": true},
+        {"name": "Low Influencer", "enabled": false}
+      ]
+    }
+  ]
+}
