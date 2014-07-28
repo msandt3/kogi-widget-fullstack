@@ -1,0 +1,16 @@
+<div class="pure-grid">
+	<% _.each(mentions, function(mention){
+		%> 
+		<div class="card">
+			<h5>Author: <%= mention.author %></h5>
+			<div class="timestamp">timestamp: <%= mention.timestamp %></div>
+			<div class="author">author: <%= mention.author %></div>
+			<div class="snippet">snippet: <%= mention.snippet %></div>
+			<br/>
+			<div class="status">Status: <%= mention.workflow.state %></div>
+			<div class="assigned">Assigned to: <%= mention.workflow.user %></div>
+			<div class="segments">Segment: <%= mention.segment %></div>
+		</div>
+		<%
+	}); %>
+</div>

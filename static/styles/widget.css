@@ -1,0 +1,10 @@
+input {
+	top: 0px !important;
+	display: inline-block !important;
+}
+
+.card{
+	border: 2px solid #a1a1a1;
+	margin: 0 1rem 1rem;
+	padding: 1.5rem;
+}
