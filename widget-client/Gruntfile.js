@@ -14,6 +14,7 @@ var mountFolder = function (connect, dir) {
 
 module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-processhtml');
+    grunt.loadNpmTasks('grunt-preprocess');
     grunt.loadNpmTasks('grunt-build-control');
     // show elapsed time at the end
     require('time-grunt')(grunt);

@@ -7,7 +7,13 @@
     var scriptTag; //reference to the html script tag
     var _; //underscorejs
     var Backbone; //backbonejs
+
+    // @ifdef DEV
     var server = 'http://localhost:3000';
+    // @endif
+    // @ifdef DIST
+    var server = 'http://fast-ravine-3470.herokuapp.com'
+    // @endif
 
  
     /******** Get reference to self (scriptTag) *********/
