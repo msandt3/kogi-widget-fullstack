@@ -13,10 +13,12 @@ var mountFolder = function (connect, dir) {
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
+    grunt.loadNpmTasks('grunt-processhtml');
     // show elapsed time at the end
     require('time-grunt')(grunt);
     // load all grunt tasks
     require('load-grunt-tasks')(grunt);
+    
 
     // configurable paths
     var yeomanConfig = {
@@ -228,8 +230,13 @@ module.exports = function (grunt) {
             }
         },
 
-        
-
+        processhtml:{
+            dist: {
+                files: {
+                    '<%= yeoman.dist %>/index.html': ['<%= yeoman.app %>/index.html']
+                }
+            }
+        },
         useminPrepare: {
             options: {
                 dest: '<%= yeoman.dist %>'
@@ -378,6 +385,7 @@ module.exports = function (grunt) {
         'requirejs',
         'cssmin',
         'concat',
+        'processhtml',
         'uglify',
         'copy',
         'rev',
