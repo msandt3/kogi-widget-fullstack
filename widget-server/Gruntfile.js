@@ -7,7 +7,7 @@ module.exports = function(grunt) {
     preprocess: {
       dist: {
           src: 'src/static/testwidget.js',
-          dest: 'dist/static/widget.processed.js',
+          dest: 'src/static/widget.processed.js',
           options: {
               context: {
                   DIST: true
@@ -16,7 +16,7 @@ module.exports = function(grunt) {
       },
       dev: {
           src: 'src/static/testwidget.js',
-          dest: 'dist/static/widget.processed.js',
+          dest: 'src/static/widget.processed.js',
           options: {
               inline: true,
               context: {
@@ -49,6 +49,25 @@ module.exports = function(grunt) {
           {expand: true, src:['package.json'], dest: 'dist/'}
         ]
       }
+    },
+    express: {
+      options: {
+
+      },
+      dev: {
+        options: {
+          script: 'src/server.js'
+        }
+      }
+    },
+    watch: {
+      express: {
+        files:  [ 'src/**/*.js' ],
+        tasks:  [ 'express:dev' ],
+        options: {
+          spawn: false // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions. Without this option specified express won't be reloaded
+        }
+      }
     }
 
   });
@@ -63,19 +82,27 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-build-control');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-express-server');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task.
   // grunt.registerTask('default', ['concat', 'uglify']);
 
-  grunt.registerTask('build',[
+  grunt.registerTask('build-dist',[
     'clean:dist',
     'preprocess:dist',
     'copy:dist',
   ]);
 
   grunt.registerTask('deploy',[
-    'build',
+    'build-dist',
     'buildcontrol:heroku'
+  ]);
+
+  grunt.registerTask('serve',[
+    'preprocess:dev',
+    'express:dev',
+    'watch'
   ]);
 
 };
