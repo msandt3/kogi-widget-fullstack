@@ -7,7 +7,7 @@ module.exports = function(grunt) {
     preprocess: {
       dist: {
           src: 'src/static/testwidget.js',
-          dest: 'src/static/widget.processed.js',
+          dest: 'dist/static/widget.processed.js',
           options: {
               context: {
                   DIST: true

@@ -8,7 +8,7 @@
     var _; //underscorejs
     var Backbone; //backbonejs
 
-    var server = 'http://localhost:3000';
+    var server = 'http://fast-ravine-3470.herokuapp.com'
  
     /******** Get reference to self (scriptTag) *********/
     var allScripts = document.getElementsByTagName('script');
