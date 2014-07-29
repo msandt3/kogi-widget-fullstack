@@ -47,9 +47,6 @@ $ grunt serve
 
 The front end portion of this project doesn't need to be modified unless you want to play with how the widget will behave in various environments. To edit the widget itself please modify /widget-server/static/testwidget.js . 
 
-##### Deploying demo page changes
-
-
 
 ##### Templates
 

@@ -363,6 +363,13 @@ module.exports = function (grunt) {
                     remote: 'https://github.com/msandt3/kogi-widget-fullstack.git',
                     branch: 'gh-pages'
                 }
+            },
+            heroku: {
+                options:{
+                    dir:'../widget-server',
+                    remote: 'git@heroku.com:fast-ravine-3470.git',
+                    branch: 'master'
+                }
             }
         }
     });
