@@ -6,8 +6,8 @@ module.exports = function(grunt) {
   grunt.initConfig({
     preprocess: {
       dist: {
-          src: 'static/testwidget.js',
-          dest: 'static/widget.processed.js',
+          src: 'src/static/testwidget.js',
+          dest: 'dist/static/widget.processed.js',
           options: {
               context: {
                   DIST: true
@@ -15,8 +15,8 @@ module.exports = function(grunt) {
           }
       },
       dev: {
-          src: 'static/testwidget.js',
-          dest: 'static/widget.processed.js',
+          src: 'src/static/testwidget.js',
+          dest: 'dist/static/widget.processed.js',
           options: {
               inline: true,
               context: {
@@ -69,7 +69,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build',[
     'clean:dist',
-    'preprocess:dist'
+    'preprocess:dist',
     'copy:dist',
   ]);
 
