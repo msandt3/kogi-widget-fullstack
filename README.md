@@ -34,7 +34,7 @@ Thats it! You're ready to start coding!
 First start the back end
 ```bash
 $ cd /path/to/repo/widget-server
-$ node server.js
+$ grunt serve
 ```
 
 Then serve the client
@@ -43,9 +43,19 @@ $ cd /path/to/repo/widget-client
 $ grunt serve
 ```
 
+##### Deploying server to Heroku
+
+Simply ensure all of your server changes are committed. You'll need to create your own heroku app and associate the Gruntfile repo url's with it. As well, make sure you have public key access to that heroku app. 
+
+Afterwards, simply run 
+```bash
+$ cd /path/to/repo/widget-client
+$ grunt deploy
+```
+
 ##### Making Changes
 
-The front end portion of this project doesn't need to be modified unless you want to play with how the widget will behave in various environments. To edit the widget itself please modify /widget-server/static/testwidget.js . 
+The front end portion of this project doesn't need to be modified unless you want to play with how the widget will behave in various environments. To edit the widget itself please modify /widget-server/src/static/testwidget.js . 
 
 
 ##### Templates
