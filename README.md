@@ -65,6 +65,7 @@ You shouldn't need to deploy front end changes as modifying the widget should su
 $ cd /path/to/repo/widget-client
 $ grunt build
 $ grunt buildcontrol:pages
+```
 
 
 ##### Templates
