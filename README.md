@@ -16,34 +16,40 @@ This project depends on several pieces of software available for free.
 After installing the dependencies above, we can now prepare our back and front end. 
 
 ##### Front End Prep
-
-	$ cd /path/to/repo/widget-client
-	$ bower install
-	$ npm install
+```bash
+$ cd /path/to/repo/widget-client
+$ bower install
+$ npm install
+```
 
 ##### Back End Prep
-
-	$ cd /path/to/repo/widget-server
-	$ npm install
-
+```bash
+$ cd /path/to/repo/widget-server
+$ npm install
+```
 Thats it! You're ready to start coding!
 
 ### Running the code
 
 First start the back end
-
-	$ cd /path/to/repo/widget-server
-	$ node server.js
+```bash
+$ cd /path/to/repo/widget-server
+$ node server.js
+```
 
 Then serve the client
-
-	$ cd /path/to/repo/widget-client
-	$ grunt serve
-
+```bash
+$ cd /path/to/repo/widget-client
+$ grunt serve
+```
 
 ##### Making Changes
 
 The front end portion of this project doesn't need to be modified unless you want to play with how the widget will behave in various environments. To edit the widget itself please modify /widget-server/static/testwidget.js . 
+
+##### Deploying demo page changes
+
+
 
 ##### Templates
 
