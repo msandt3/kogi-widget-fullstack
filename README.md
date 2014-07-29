@@ -43,19 +43,28 @@ $ cd /path/to/repo/widget-client
 $ grunt serve
 ```
 
-##### Deploying server to Heroku
+### Making Changes
 
-Simply ensure all of your server changes are committed. You'll need to create your own heroku app and associate the Gruntfile repo url's with it. As well, make sure you have public key access to that heroku app. 
+The front end portion of this project doesn't need to be modified unless you want to play with how the widget will behave in various environments. To edit the widget itself please modify /widget-server/src/static/testwidget.js . 
+
+### Deploying server to Heroku
+
+Simply ensure all of your server changes are committed. You'll need to create your own heroku app and associate the Gruntfile repo url's with it. As well, make sure you have public key access to that heroku app.
 
 Afterwards, simply run 
 ```bash
-$ cd /path/to/repo/widget-client
+$ cd /path/to/repo/widget-server
 $ grunt deploy
 ```
 
-##### Making Changes
+### Deploying front end Changes
 
-The front end portion of this project doesn't need to be modified unless you want to play with how the widget will behave in various environments. To edit the widget itself please modify /widget-server/src/static/testwidget.js . 
+You shouldn't need to deploy front end changes as modifying the widget should suffice. If you do want to play around with different environments on the front end you can push the changes to the github pages like so 
+
+```bash
+$ cd /path/to/repo/widget-client
+$ grunt build
+$ grunt buildcontrol:pages
 
 
 ##### Templates
