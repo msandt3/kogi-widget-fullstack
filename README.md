@@ -62,7 +62,7 @@ The front end portion of this project doesn't need to be modified unless you wan
 
 In order to minimize the amount of HTML to be written in jQuery/Javascript i've circumvented CORS on the server side to allow for rendering of HTML templates. One can simply pull in raw HTML, or [Underscore](http://underscorejs.org/) style templates to handle display of complex JSON structures. 
 
-The raw HTML is styled with [Pure CSS](http://purecss.io/), a lightweight CSS framework. You can leverage any of the components you choose in youre HTML and Templates
+The raw HTML is styled with [Pure CSS](http://purecss.io/), a lightweight CSS framework. You can leverage any of the components you choose in your HTML and Templates
 
 ###### TODO
 
