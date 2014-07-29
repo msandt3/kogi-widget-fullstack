@@ -12,7 +12,7 @@
     var server = 'http://localhost:3000';
     // @endif
     // @ifdef DIST
-    var server = 'http://fast-ravine-3470.herokuapp.com'
+    var server = 'http://fast-ravine-3470.herokuapp.com';
     // @endif
 
  
@@ -20,7 +20,7 @@
     var allScripts = document.getElementsByTagName('script');
     var targetScripts = [];
     for (var i in allScripts) {
-        var name = allScripts[i].src
+        var name = allScripts[i].src;
         if(name && name.indexOf(scriptName) > 0)
             targetScripts.push(allScripts[i]);
     }
@@ -33,7 +33,7 @@
         var script_tag = document.createElement('script');
         script_tag.setAttribute("type", "text/javascript");
         script_tag.setAttribute("src", src);
-        if(id != null){
+        if(id !== null){
             script_tag.setAttribute("id",id);
         }
  
@@ -83,13 +83,14 @@
 
         /* Load in Pure Css Styles */
         loadCss("//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css");
+        loadCss("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
         loadCss(server+"/static/styles/widget.css");
 	
         jQuery(document).ready(function ($) {          
 
             // showBackbone();
             showLogin();
-
+            $('.widget-header').load(server+'/static/templates/header.html');
 
             function showLogin(){
             // ==================== Load Login Form & Attach Handlers ========================
@@ -104,7 +105,7 @@
                             password: $('#password').val(),
                             grant_type: 'password',
                             client_id: 'anything'
-                        }
+                        };
 
                         console.log(postData);
                         $.post(server+'/api/login',postData,function(data){

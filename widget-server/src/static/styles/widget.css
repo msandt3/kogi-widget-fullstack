@@ -4,7 +4,44 @@ input {
 }
 
 .card{
-	border: 2px solid #a1a1a1;
+	/*border: 2px solid #a1a1a1;*/
 	margin: 0 1rem 1rem;
 	padding: 1.5rem;
 }
+
+.widget-header img{
+	height: 3rem;
+	margin-right:1rem;
+}
+
+.widget-header .desc{
+	color: #a1a1a1;
+	font-size: 0.8rem;
+}
+
+/* Form Overrides */
+#filters-form h5{
+	margin: 0.25rem !important;
+}
+
+
+#filters-form hr{
+	margin: 0rem !important;
+}
+/* Pure CSS Overrides */
+.pure-menu.pure-menu-pull-right{
+	display:table;
+	width:100%;
+}
+
+.pure-menu.pure-menu-pull-right > ul{
+	display:table-cell;
+	vertical-align: middle;
+	text-align:right;
+}
+
+.pure-button{
+	background-color: #fff !important;
+	border: 1px solid #999 !important;
+}
+

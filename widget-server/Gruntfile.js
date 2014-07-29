@@ -63,7 +63,7 @@ module.exports = function(grunt) {
     watch: {
       express: {
         files:  [ 'src/**/*.js' ],
-        tasks:  [ 'express:dev' ],
+        tasks:  [ 'preprocess:dev','express:dev' ],
         options: {
           spawn: false // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions. Without this option specified express won't be reloaded
         }
