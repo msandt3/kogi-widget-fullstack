@@ -14,6 +14,7 @@ var mountFolder = function (connect, dir) {
 
 module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-processhtml');
+    grunt.loadNpmTasks('grunt-build-control');
     // show elapsed time at the end
     require('time-grunt')(grunt);
     // load all grunt tasks
@@ -348,6 +349,20 @@ module.exports = function (grunt) {
             },
             all: {
                 rjsConfig: '<%= yeoman.app %>/scripts/main.js'
+            }
+        },
+        buildcontrol:{
+            options: {
+                dir:'dist',
+                commit:true,
+                push: true,
+                message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+            },
+            pages: {
+                options: {
+                    remote: 'https://github.com/msandt3/kogi-widget-fullstack.git',
+                    branch: 'gh-pages'
+                }
             }
         }
     });
