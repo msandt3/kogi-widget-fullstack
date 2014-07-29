@@ -7,7 +7,7 @@
     var scriptTag; //reference to the html script tag
     var _; //underscorejs
     var Backbone; //backbonejs
-    var server = 'http://fast-ravine-3470.herokuapp.com/';
+    var server = 'http://fast-ravine-3470.herokuapp.com';
 
  
     /******** Get reference to self (scriptTag) *********/
